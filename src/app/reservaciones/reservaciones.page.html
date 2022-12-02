@@ -5,5 +5,29 @@
 </ion-header>
 
 <ion-content>
+  <ion-row>
+    <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-label>Mostrar mas proximos</ion-label>
+            <ion-toggle (ionChange)="nearest()"> </ion-toggle>slot="end"></ion-toggle>
+          </ion-item>
+            <ion-item *ngFor="let item of reservaciones; let i=index">
+                <ion-item (click)="getStudentById(item.id)">
+                    <ion-label>
+                        <strong>{{item.cliente.nombre}}
+                          {{item.cliente.telefono}}
+                        </strong>
+                        <h4>
+                            {{item.fecha}}
+                            <br>${{item.total}}
+                        </h4>
+                    </ion-label>
+                </ion-item>
+            </ion-item>
 
+        </ion-list>
+    </ion-col>
+
+</ion-row>
 </ion-content>

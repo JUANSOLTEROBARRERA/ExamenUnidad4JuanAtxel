@@ -6,15 +6,72 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding>
+  <ion-grid>
+      <form [formGroup]="myForm">
+          <ion-row>
+              <ion-col>
+                  <ion-item>
+                      <ion-label position="floating">Fecha</ion-label>
+                      <ion-datetime [min]="today" formControlName="fecha"></ion-datetime>
+                        <ion-button (click)="verificar()">verificar fecha</ion-button>
+                    </ion-item>
+                  <div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+                  </div>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                  <ion-item>
+                      <ion-label position="floating">Profundidad</ion-label>
+                      <ion-range [ticks]="true" [snaps]="true" [min]="0" [max]="5" formControlName="alberca" (ionChange)="onIonChange($event)"></ion-range>
+                  </ion-item>
+                  <div>
+                  </div>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                  <ion-item>
+                      <ion-label position="floating">Mesa de postres</ion-label>
+                      <ion-toggle formControlName="postres"  (ionChange)="postresChn()" slot="end"></ion-toggle>
+                  </ion-item>
+                  <div>
+                  </div>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Brincolin</ion-label>
+                    <ion-toggle formControlName="brincolin"  (ionChange)="brincolinChn()" slot="end"></ion-toggle>
+                  </ion-item>
+                  <div>
+                  </div>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">futbolito</ion-label>
+                    <ion-toggle formControlName="futbolito"  (ionChange)="futbolitoChn()" slot="end"></ion-toggle>
+                  </ion-item>
+                  <div>
+
+                  </div>
+              </ion-col>
+          </ion-row>
+          
+          <ion-row>
+              <ion-col size="12">
+                  <ion-button color="success" (click)="newReservation()" expand="block" shape="round" [disabled]="!myForm.valid">
+                      <ion-icon name="checkmark-outline"></ion-icon>&nbsp;
+                      <ion-label class="txtWhite">Guardar</ion-label>
+                  </ion-button>
+              </ion-col>
+              <ion-chip color="success">${{ total }}</ion-chip>
+            </ion-row>
+      </form>
+  </ion-grid>
 </ion-content>

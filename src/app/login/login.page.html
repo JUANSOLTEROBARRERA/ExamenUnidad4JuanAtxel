@@ -5,5 +5,36 @@
 </ion-header>
 
 <ion-content>
-  
+  <div id="container">
+    <ion-card>
+      <ion-card-header>
+
+        <ion-card-title style="margin-top: 5%;">Iniciar Sesión</ion-card-title>
+        <ion-card-subtitle></ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-grid>
+          <form [formGroup]="myForm">
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">Numero de telefono</ion-label>
+                  <ion-input formControlName="telefono"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+          </form>
+          <br>
+
+          <ion-button style="margin-top: 5%;" (click)="ingresar()">
+            Ingresar
+          </ion-button>
+
+        </ion-grid>
+      </ion-card-content>
+
+    </ion-card>
+  </div>
 </ion-content>

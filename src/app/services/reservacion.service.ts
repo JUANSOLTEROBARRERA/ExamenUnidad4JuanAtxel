@@ -33,7 +33,7 @@ export class ReservacionService {
   }
 
   public newReservacion(reservacion: Reservacion){
-    this.firestore.collection('reservaciones').add(Reservacion);
+    this.firestore.collection('reservaciones').add(reservacion);
   }
 
   public getFechaHoy(){
